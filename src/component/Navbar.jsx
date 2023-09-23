@@ -9,13 +9,13 @@ const Navbar = () => {
     <>
       <div className="flex justify-between items-center relative font-lato bg-blue-200 px-2 py-4 shadow-md">
         <TbLayoutSidebarLeftExpand
-          className="text-black text-3xl"
+          className="text-black text-3xl cursor-pointer"
           onClick={() => setSidebar(!sidebar)}
         />
         <h1 className="text-3xl text-black font-bold mr-4">Neura Talk</h1>
       </div>
       {sidebar && (
-        <Sidebar className="translate-x-5 delay-100 h-full fixed top-0 -left-5 w-screen z-50 shadow-md" sidebar={sidebar} setSidebar={setSidebar} />
+        <Sidebar className="lg:w-1/4 translate-x-5 z-40 ease-in-out duration-300 fixed top-0 -left-5 w-screen bg-white shadow-md cursor-pointer" sidebar={sidebar} setSidebar={setSidebar} />
       )}
     </>
   );

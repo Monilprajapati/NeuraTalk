@@ -7,7 +7,7 @@ const Sidebar = ({ className, sidebar, setSidebar }) => {
   return (
     <>
       <div className={`${className}`}>
-        <div className="top font-lato bg-blue-200 p-3 flex justify-between items-center">
+        <div className="top font-lato shadow-md bg-blue-200 p-3 flex justify-between items-center">
           <button className="flex gap-3 items-center text-2xl px-3 py-2 border border-black rounded-md w-1/2">
             <AiOutlinePlus className="font-bold text-black" />
             <span className="font-semibold text-black">New Chat</span>
@@ -20,7 +20,7 @@ const Sidebar = ({ className, sidebar, setSidebar }) => {
           </button>
         </div>
 
-        <div className="chatlist mt-5">
+        <div className="chatlist mt-5 pb-20 h-screen overflow-scroll">   
           <div className="chat flex gap-3 items-center py-3 mx-5 my-2 pl-5 border border-black rounded-md">
             <BiMessage className="text-xl text-black" />
             <span className="text-black text-2xl font-lato">Chat</span>
@@ -31,20 +31,6 @@ const Sidebar = ({ className, sidebar, setSidebar }) => {
             <span className="text-black text-2xl font-lato">Chat</span>
           </div>
 
-          <div className="chat flex gap-3 items-center py-3 mx-5 my-2 pl-5 border border-black rounded-md">
-            <BiMessage className="text-xl text-black" />
-            <span className="text-black text-2xl font-lato">Chat</span>
-          </div>
-
-          <div className="chat flex gap-3 items-center py-3 mx-5 my-2 pl-5 border border-black rounded-md">
-            <BiMessage className="text-xl text-black" />
-            <span className="text-black text-2xl font-lato">Chat</span>
-          </div>
-
-          <div className="chat flex gap-3 items-center py-3 mx-5 my-2 pl-5 border border-black rounded-md">
-            <BiMessage className="text-xl text-black" />
-            <span className="text-black text-2xl font-lato">Chat</span>
-          </div>
         </div>
       </div>
     </>
