@@ -57,10 +57,10 @@ Step-by-step instructions on how to install and set up your project. Include any
 
 ```bash
 # Clone the repository
-git clone 
+git clone https://github.com/Monilprajapati/NeuraTalk.git
 
 # Change directory to your project folder
-cd 
+cd NeuraTalk
 
 # Install dependencies
 npm install
