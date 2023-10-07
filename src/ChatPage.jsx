@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./component/Navbar";
-import { Configuration, OpenAIApi } from "openai";
+// import { Configuration, OpenAIApi } from "openai";
 import { TbSend } from "react-icons/tb";
-
 
 const ChatPage = () => {
   const [prompt, setPrompt] = useState("");

@@ -15,7 +15,7 @@ const Navbar = () => {
         <h1 className="text-3xl text-black font-bold mr-4">Neura Talk</h1>
       </div>
       {sidebar && (
-        <Sidebar className="lg:w-1/4 translate-x-5 z-40 ease-in-out duration-300 fixed top-0 -left-5 w-screen bg-white shadow-md cursor-pointer" sidebar={sidebar} setSidebar={setSidebar} />
+        <Sidebar className="md:w-96 translate-x-5 z-40 ease-in-out duration-300 fixed top-0 -left-5 w-screen bg-white shadow-md cursor-pointer" sidebar={sidebar} setSidebar={setSidebar} />
       )}
     </>
   );
