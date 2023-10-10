@@ -2,6 +2,8 @@
 
 A chat application that allows users to interact with an AI model like ChatGPT.
 
+## Live link : https://neura-talk.vercel.app/
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
