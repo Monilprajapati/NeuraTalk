@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "./component/Navbar";
 // import { Configuration, OpenAIApi } from "openai";
 import { TbSend } from "react-icons/tb";
 import Message from "./component/Message";
 import bot from "./assets/chatbot.png"
-import user from "./assets/user.png"
+import user from "./assets/user.png";
+import sendMessageToOpenAI from "./gptResponse";
 
 const ChatPage = () => {
   const [prompt, setPrompt] = useState("");
@@ -28,15 +29,23 @@ const ChatPage = () => {
       onResponse();
     }
   }
-  const onResponse = () => {
-    const newMessage = {
-      id: chatList.length + 1, // Generate a unique ID for each message
-      img: user,
-      prompt: prompt,
-    };
+  const onResponse = async () => {
 
-    setChatList([...chatList, newMessage]);
-    setPrompt("");
+    if (prompt.trim() === "") return;
+    try {
+      const newMessage = {
+        id: chatList.length + 1, // Generate a unique ID for each message
+        img: user,
+        prompt: prompt,
+      };
+      setChatList([...chatList, newMessage]);
+      setPrompt("");
+      const aiResponse = await sendMessageToOpenAI(prompt);
+      setgptResponse(aiResponse);
+      console.log(gptResponse);
+    } catch (error) {
+      console.error("Error sending message to OpenAI:", error);
+    }
   };
   return (
     <div className="w-screen h-screen flex justify-between flex-col">
@@ -54,7 +63,7 @@ const ChatPage = () => {
               type="text"
               value={prompt}
               placeholder="Type your message here"
-              className="mr-12 font-lato text-lg py-3 px-2 h-full w-full bg-transparent outline-none resize-none"
+              className="mr-12 font-lato text-lg py-3 pl-3 pr-2 h-full w-full bg-transparent outline-none resize-none"
               onChange={(e) => setPrompt(e.target.value)}
               onKeyDown={handleKeyPress}
             />
