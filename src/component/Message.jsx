@@ -1,8 +1,15 @@
 import React from 'react'
 
-const Message = () => {
+const Message = ({img,prompt}) => {
   return (
-    <div>Message</div>
+    <div className='flex'>
+      <div className='img'>
+        <img src={img} alt="" />
+      </div>
+      <div className="message">
+        {prompt}
+      </div>
+    </div>
   )
 }
 
