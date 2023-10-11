@@ -51,7 +51,7 @@ const ChatPage = () => {
     <div className="w-screen h-screen flex justify-between flex-col">
       <Navbar />
       <div className="mx-4 md:mx-7 lg:mx-24 xl:mx-48">
-        <div className="chatArea pb-3 pr-7 pl-2 flex gap-5 flex-col overflow-y-scroll h-[500px]">
+        <div className="chatArea pb-3 pr-7 pl-2 flex gap-5 flex-col overflow-y-scroll h-[610px]">
           {chatList.map((chat) => {
             return <Message key={chat.id} img={chat.img} prompt={chat.prompt} />;
           })}
