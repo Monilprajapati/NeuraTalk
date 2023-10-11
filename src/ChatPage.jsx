@@ -5,7 +5,7 @@ import { TbSend } from "react-icons/tb";
 import Message from "./component/Message";
 import bot from "./assets/chatbot.png"
 import user from "./assets/user.png";
-import sendMessageToOpenAI from "./gptResponse";
+// import sendMessageToOpenAI from "./gptResponse";
 
 const ChatPage = () => {
   const [prompt, setPrompt] = useState("");
