@@ -12,8 +12,8 @@ const sendMessageToOpenAI = async (prompt) => {
       messages: [{ role: "user", content: prompt }],
       max_tokens: 100,
     });
-
-    console.log(chatCompletion.choices[0].message);
+    console.log(chatCompletion.choices[0].message.content);
+    return chatCompletion.choices[0].message.content;
   } catch (error) {
     console.error("Error sending message to OpenAI:", error);
     if (error.response) {

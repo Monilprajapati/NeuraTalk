@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./component/Navbar";
 // import { Configuration, OpenAIApi } from "openai";
 import { TbSend } from "react-icons/tb";
 import Message from "./component/Message";
 import bot from "./assets/chatbot.png"
 import user from "./assets/user.png";
-// import sendMessageToOpenAI from "./gptResponse";
+import sendMessageToOpenAI from "./gptResponse";
 
 const ChatPage = () => {
   const [prompt, setPrompt] = useState("");
   const [gptResponse, setgptResponse] = useState("");
+  const [botIsLoading, setBotIsLoading] = useState(false);
   const [chatList, setChatList] = useState([
     {
       id: 1,
@@ -17,11 +18,6 @@ const ChatPage = () => {
       prompt: "Hello, How can i help you"
     }
   ])
-  console.log(prompt);
-
-  // useEffect(() => {
-  //   console.log(chatList);
-  // }, [chatList])
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter" && prompt.length > 0) {
@@ -29,24 +25,49 @@ const ChatPage = () => {
       onResponse();
     }
   }
-  const onResponse = async () => {
 
+  const onResponse = async () => {
     if (prompt.trim() === "") return;
     try {
-      const newMessage = {
-        id: chatList.length + 1, // Generate a unique ID for each message
+      const userMessage = {
+        id: chatList.length + 1, // Ensure each ID is unique
         img: user,
         prompt: prompt,
+        timestamp: new Date(),
       };
-      setChatList([...chatList, newMessage]);
+
+      // Update chatList using the functional update form
+      setChatList((prevChatList) => [...prevChatList, userMessage]);
       setPrompt("");
+
+      // Simulate a reply delay (optional)
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Send the prompt to the OpenAI API
       const aiResponse = await sendMessageToOpenAI(prompt);
+      const gptMessage = {
+        id: chatList.length + 2, // Ensure each ID is unique
+        img: bot,
+        prompt: aiResponse,
+        timestamp: new Date(),
+      };
+      // Update chatList using the functional update form
+      setChatList((prevChatList) => [...prevChatList, gptMessage]);
       setgptResponse(aiResponse);
-      console.log(gptResponse);
     } catch (error) {
       console.error("Error sending message to OpenAI:", error);
+      const errorMessage = {
+        id: chatList.length + 3, // Ensure each ID is unique
+        img: bot,
+        prompt: "Sorry, something went wrong. Please try again later.",
+        timestamp: new Date(),
+      };
+
+      // Update chatList using the functional update form
+      setChatList((prevChatList) => [...prevChatList, errorMessage]);
     }
   };
+
   return (
     <div className="w-screen h-screen flex justify-between flex-col">
       <Navbar />
