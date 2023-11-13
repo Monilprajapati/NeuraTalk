@@ -26,6 +26,8 @@ const ChatPage = () => {
     }
   }
 
+  //getting response from GPT
+
   const onResponse = async () => {
     if (prompt.trim() === "") return;
     try {

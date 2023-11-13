@@ -4,6 +4,8 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true
 });
 
+//sending message to GPT
+
 const sendMessageToOpenAI = async (prompt) => {
   try {
     // Make the API request here
