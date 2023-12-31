@@ -1,13 +1,15 @@
-import './App.css'
-import ChatPage from './ChatPage'
+import "./App.css";
+import ChatPage from "./ChatPage";
+import Navbar from "./component/Navbar";
+import ChatProvider from "./context/ChatProvider";
 
 function App() {
-
   return (
-    <>
-    <ChatPage/>
-    </>
-  )
+    <ChatProvider>
+      <Navbar />  
+      <ChatPage />
+    </ChatProvider>
+  );
 }
 
-export default App
+export default App;
