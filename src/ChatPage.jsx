@@ -82,7 +82,7 @@ const ChatPage = () => {
           <>
             <div
               ref={chatAreaRef}
-              className="chatArea pb-3 pt-4 pl-2 flex gap-5 flex-col scroll-smooth overflow-y-scroll h-[520px]"
+              className="chatArea pb-3 pt-2 mt-2 pl-2 flex gap-5 flex-col scroll-smooth overflow-y-scroll h-[620px]"
             >
               <>
                 {activeChat.messages.map((message) => (
@@ -112,13 +112,14 @@ const ChatPage = () => {
                   placeholder="Type your message here"
                   className="mr-12 font-lato text-lg py-3 pl-3 pr-2 h-full w-full bg-transparent outline-none resize-none"
                   onChange={(e) => setPrompt(e.target.value)}
-                  onKeyDown={handleKeyPress}
+                  disabled={loading}
                   autoFocus={true}
-                />
+                  />
                 {prompt.length > 0 && (
                   <button
-                    className="btn absolute right-0 mr-2 bg-blue-500 hover:bg-blue-600 p-2 rounded-md"
-                    onClick={() => onResponse()}
+                  className="btn absolute right-0 mr-2 bg-blue-500 hover:bg-blue-600 p-2 rounded-md"
+                  onClick={() => onResponse()}
+                  disabled={loading}
                   >
                     <TbSend className="text-xl cursor-pointer" />
                   </button>
