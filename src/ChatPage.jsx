@@ -1,6 +1,5 @@
 // ChatPage.js
 import React, { useState, useEffect, useRef } from "react";
-import Navbar from "./component/Navbar";
 import { TbSend } from "react-icons/tb";
 import Message from "./component/Message";
 import bot from "./assets/chatbot.png";
