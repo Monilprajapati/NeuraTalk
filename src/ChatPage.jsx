@@ -77,13 +77,13 @@ const ChatPage = () => {
   }, [activeChat, activeChat?.messages,loading]);
 
   return (
-    <div className="w-screen flex justify-between flex-col">
-      <div className="mx-4 md:mx-7 lg:mx-24 xl:mx-48">
+    <div className="w-screen">
+      <div className="mx-4 md:mx-7 lg:mx-24 xl:mx-48 h-[91vh]">
         {activeChat && (
-          <>
+          <div className="flex flex-col justify-between h-full">
             <div
               ref={chatAreaRef}
-              className="chatArea pb-3 pt-2 mt-2 pl-2 flex gap-5 flex-col scroll-smooth overflow-y-scroll h-[620px]"
+              className="chatArea pb-3 pt-2 mt-2 pl-2 flex gap-5 flex-col scroll-smooth overflow-auto"
             >
               <>
                 {activeChat.messages.map((message) => (
@@ -105,7 +105,7 @@ const ChatPage = () => {
             <div
               className={`chatInput ${prompt.length > 95 ? "h-20" : "h-fit"}`}
             >
-              <div className="inputField flex h-full items-center justify-between my-3 border border-black rounded-md relative">
+              <div className="inputField flex items-center justify-between my-3 border border-black rounded-md relative">
                 <textarea
                   rows={1}
                   type="text"
@@ -128,7 +128,7 @@ const ChatPage = () => {
                 )}
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

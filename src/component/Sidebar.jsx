@@ -35,7 +35,7 @@ const Sidebar = ({ className, sidebar, setSidebar }) => {
           </button>
         </div>
 
-        <div className="chatlist mt-2 h-full overflow-y-scroll">
+        <div className="chatlist mt-2 h-full overflow-auto">
           {state.chats.map((chat) => (
             <NewchatCard
               key={chat.id}
