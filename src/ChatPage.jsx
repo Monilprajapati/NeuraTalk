@@ -9,8 +9,9 @@ import { useChatContext } from "./context/ChatContext";
 import LoadingMessage from "./component/LoadingMessage";
 
 const ChatPage = () => {
-  const { state, addMessage, setActiveChat, setLoading } = useChatContext();
+  const { state, addMessage, setActiveChat } = useChatContext();
   const activeChat = state.chats.find((chat) => chat.id === state.activeChatId);
+  const [loading, setLoading] = useState(state.isLoading);
   const [prompt, setPrompt] = useState("");
   const chatAreaRef = useRef(null);
 

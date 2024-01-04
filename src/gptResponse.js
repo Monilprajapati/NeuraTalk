@@ -7,7 +7,6 @@ const openai = new OpenAI({
 //sending message to GPT
 const sendMessageToOpenAI = async (prompt, setLoading) => {
   try {
-
     // Make the API request here
     const chatCompletion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
