@@ -35,6 +35,7 @@ const ChatPage = () => {
 
       // Update chatList of the active chat
       addMessage(state.activeChatId, userMessage);
+      activeChat.title = prompt;
       setPrompt("");
 
       // Simulate a reply delay (optional)
@@ -112,6 +113,7 @@ const ChatPage = () => {
                   placeholder="Type your message here"
                   className="mr-12 font-lato text-lg py-3 pl-3 pr-2 h-full w-full bg-transparent outline-none resize-none"
                   onChange={(e) => setPrompt(e.target.value)}
+                  onKeyDown={(e) => handleKeyPress(e)}
                   disabled={loading}
                   autoFocus={true}
                   />
