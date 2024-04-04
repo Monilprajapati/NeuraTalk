@@ -2,3 +2,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body{
+    overflow: hidden;
+}
+
+.head_text {
+    @apply mt-5 font-extrabold leading-[1.15] text-black sm:text-6xl text-center;
+}
+
+.black_btn {
+    @apply rounded-full border border-black bg-black py-3 px-7 xl:px-9 xl:py-4 text-lg mt-4 text-white transition-all hover:bg-white hover:text-black;
+}
+
+.orange_gradient {
+    @apply bg-gradient-to-r from-slate-300 via-slate-300 to-white bg-clip-text text-transparent;
+}
+
+
+.desc {
+    @apply mt-5 text-black text-center max-w-2xl;
+}

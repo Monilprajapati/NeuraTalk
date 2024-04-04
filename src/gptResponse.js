@@ -11,7 +11,7 @@ const sendMessageToOpenAI = async (prompt, setLoading) => {
     const chatCompletion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt }],
-      max_tokens: 100,
+      max_tokens: 30,
     });
 
     console.log(chatCompletion.choices[0].message.content);
@@ -23,6 +23,7 @@ const sendMessageToOpenAI = async (prompt, setLoading) => {
       console.error("API Response Status:", error.response.status);
       console.error("API Response Data:", error.response.data);
     }
+    return "Sorry, something went wrong. Please try again later.";
   }
 };
 

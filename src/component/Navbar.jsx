@@ -12,7 +12,7 @@ const Navbar = () => {
           className="text-black text-3xl cursor-pointer"
           onClick={() => setSidebar(!sidebar)}
         />
-        <h1 className="text-3xl text-black font-bold mr-4">Neura Talk</h1>
+        <h1 className="text-3xl xl:text-4xl text-black font-bold mr-4">Neura Talk</h1>
       </div>
       {sidebar && (
         <Sidebar className="md:w-96 translate-x-5 z-40 ease-in-out duration-300 fixed top-0 -left-5 w-screen bg-white shadow-md cursor-pointer" sidebar={sidebar} setSidebar={setSidebar} />
