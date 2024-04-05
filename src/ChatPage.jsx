@@ -60,7 +60,6 @@ const ChatPage = () => {
         prompt: "Sorry, something went wrong. Please try again later.",
         timestamp: new Date(),
       };
-      console.log(errorMessage);
       // Update chatList of the active chat
       addMessage(state.activeChatId, errorMessage);
     }
