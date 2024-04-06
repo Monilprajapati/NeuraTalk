@@ -23,7 +23,7 @@ const sendMessageToOpenAI = async (prompt, setLoading) => {
       console.error("API Response Status:", error.response.status);
       console.error("API Response Data:", error.response.data);
     }
-    return "Sorry, something went wrong. Please try again later.";
+    return "Sorry, something went wrong. Please try again later :(";
   }
 };
 

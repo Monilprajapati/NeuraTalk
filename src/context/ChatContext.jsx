@@ -4,7 +4,7 @@ import bot from "../assets/chatbot.png";
 import user from "../assets/user.png";
 
 const initialState = {
-  chats: [],
+  chats: JSON.parse(localStorage.getItem("chats")) || [],
   activeChatId: 1,
   isLoading: false,
 };
@@ -24,12 +24,14 @@ const chatReducer = (state, action) => {
         title: action.payload.title,
         messages: [
           {
-            id:1,
+            id: 1,
             img: bot,
             prompt: "Hi, I'm a Neura. Ask me anything!",
-          }
+          },
         ],
       };
+
+      localStorage.setItem("chats", JSON.stringify([...state.chats, newChat]));
       return {
         ...state,
         chats: [...state.chats, newChat],
@@ -40,6 +42,7 @@ const chatReducer = (state, action) => {
           ? { ...chat, messages: [...chat.messages, action.payload.message] }
           : chat
       );
+      localStorage.setItem("chats", JSON.stringify(updatedChats));
       return {
         ...state,
         chats: updatedChats,

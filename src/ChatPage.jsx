@@ -19,7 +19,6 @@ const ChatPage = () => {
     if (event.key === "Enter" && prompt.length > 0) {
       event.preventDefault();
       onResponse();
-      activeChat.title = prompt;
     }
   };
 
@@ -35,11 +34,12 @@ const ChatPage = () => {
 
       // Update chatList of the active chat
       addMessage(state.activeChatId, userMessage);
-      activeChat.title = prompt;
+      if (activeChat.title === "New Chat") {
+        activeChat.title = prompt;
+      }
       setPrompt("");
 
       // Simulate a reply delay (optional)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
       setLoading(true);
       // Send the prompt to the OpenAI API
       const aiResponse = await sendMessageToOpenAI(prompt);
@@ -72,7 +72,7 @@ const ChatPage = () => {
     } else {
       console.log("Chat area or activeChat is undefined");
     }
-  }, [activeChat, activeChat?.messages,loading]);
+  }, [activeChat, activeChat?.messages, loading]);
 
   return (
     <div className="w-screen">
@@ -114,12 +114,12 @@ const ChatPage = () => {
                   onKeyDown={(e) => handleKeyPress(e)}
                   disabled={loading}
                   autoFocus={true}
-                  />
+                />
                 {prompt.length > 0 && (
                   <button
-                  className="btn absolute right-0 mr-2 bg-blue-500 hover:bg-blue-600 p-2 rounded-md"
-                  onClick={() => onResponse()}
-                  disabled={loading}
+                    className="btn absolute right-0 mr-2 bg-blue-500 hover:bg-blue-600 p-2 rounded-md"
+                    onClick={() => onResponse()}
+                    disabled={loading}
                   >
                     <TbSend className="text-xl cursor-pointer" />
                   </button>

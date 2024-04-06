@@ -13,7 +13,7 @@ body{
 }
 
 .black_btn {
-    @apply rounded-full border border-black bg-black py-3 px-7 xl:px-9 xl:py-4 text-lg mt-4 text-white transition-all hover:bg-white hover:text-black;
+    @apply rounded-full font-semibold bg-black py-3 px-7 xl:px-9 xl:py-4 text-lg mt-4 text-white transition-all hover:bg-white hover:text-black hover:shadow-md hover:shadow-white;
 }
 
 .orange_gradient {
