@@ -77,7 +77,7 @@ const ChatPage = () => {
   return (
     <div className="w-screen">
       <div className="mx-4 md:mx-7 lg:mx-24 xl:mx-48 h-[91vh]">
-        {activeChat && (
+        {activeChat ? (
           <div className="flex flex-col justify-between h-full">
             <div
               ref={chatAreaRef}
@@ -127,6 +127,11 @@ const ChatPage = () => {
               </div>
             </div>
           </div>
+        ) : (
+          <div className="flex justify-center items-center h-full">
+            <h1 className="text-2xl">No active chat selected</h1>
+          </div>
+        
         )}
       </div>
     </div>

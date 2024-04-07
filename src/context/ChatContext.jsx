@@ -2,12 +2,14 @@
 import React, { createContext, useReducer, useContext } from "react";
 import bot from "../assets/chatbot.png";
 import user from "../assets/user.png";
+import { useEffect } from "react";
 
 const initialState = {
   chats: JSON.parse(localStorage.getItem("chats")) || [],
   activeChatId: 1,
   isLoading: false,
 };
+
 
 const actions = {
   ADD_CHAT: "ADD_CHAT",

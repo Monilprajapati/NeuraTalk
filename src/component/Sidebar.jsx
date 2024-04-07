@@ -19,7 +19,7 @@ const Sidebar = ({ className, sidebar, setSidebar }) => {
   return (
     <>
       <div className={`${className} pb-24 h-screen`}>
-        <div className="top font-lato shadow-sm bg-blue-200 py-3 px-3 flex justify-between items-center">
+        <div className="top font-lato shadow-sm bg-blue-200 py-2.5 px-3 flex justify-between items-center">
           <button
             className="flex gap-3 items-center text-2xl px-3 py-2 border border-black rounded-md w-1/2"
             onClick={() => {
